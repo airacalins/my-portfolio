@@ -1,0 +1,41 @@
+
+.nav-menu.light__mode.navbar.navbar-expand-lg.navbar-light {
+
+    & > .navbar-collapse.collapse { 
+
+        & > .nav-menu__list {
+            width: 100%;
+            justify-content: flex-end;
+            padding: 50px;
+            & > .nav-menu__item.nav-link {
+                color: gray;
+            }
+
+            & > .nav-menu__icon.nav-link {
+                color: #FBA310;
+            }
+        }
+
+    }
+}
+
+
+
+.nav-menu.dark__mode.navbar.navbar-expand-lg.navbar-light {    
+    & > .navbar-collapse.collapse { 
+
+        & > .nav-menu__list {
+            width: 100%;
+            justify-content: flex-end;
+            padding: 50px;
+
+            & > .nav-menu__item.nav-link {
+                color: lightgrey;
+            }
+
+            & > .nav-menu__icon.nav-link {
+                color: #FBA310;
+            }
+        }
+    }
+}
