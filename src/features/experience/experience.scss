@@ -1,0 +1,21 @@
+@import '../../app/layouts/variables.scss';
+
+.experience {
+    &__dark {
+        background-color: $dark-secondary;
+        padding-top: 10em;
+    }
+
+    &__title { font-size: 4em; }
+}
+
+.work {
+    &__year{
+        font-size: 4em;
+        font-weight: bolder;
+    }
+
+    &__container {
+        background-color: $dark-secondary;
+    }
+}

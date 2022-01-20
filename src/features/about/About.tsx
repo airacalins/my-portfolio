@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { faExternalLinkAlt, faLink, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import "./about.scss"
-import { faBootstrap, faCss3Alt, faFigma, faGit, faHtml5, faJira, faJs, faReact, faSass } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBootstrap, faCss3Alt, faFigma, faGit, faHtml5, faJira, faJs, faReact, faSass } from '@fortawesome/free-brands-svg-icons';
+import "./about.scss"
 
 interface Props {
     theme: string,
@@ -36,9 +36,9 @@ const About: React.FC<Props> = ({ theme, textColor }) => {
     ])
 
     return (
-        <div className={`${theme} about vh-100`}>
-            <Container className='about__container'>
-                <div className="about__text mb-5">
+        <div className={`about about${theme}  vh-100`}>
+            <Container>
+                <div className="mb-5">
                     <p className={`about__title ${textColor}`}>About</p>
                     <p className={`about__description ${textColor}`}>I am an entry-level software engineer based in Pasig, Philippines. I make mobile applications during my free time and I enjoy building web applications using React. </p>
                 </div>
