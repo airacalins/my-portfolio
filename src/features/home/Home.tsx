@@ -1,40 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useMemo } from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import React from 'react';
+import { Button, Container } from 'react-bootstrap';
 import "./home.scss"
-import { faCoffee, faMoon } from '@fortawesome/free-solid-svg-icons'
-
 
 interface Props {
-    isDarkMode: boolean
+    theme: string,
+    textColor: string,
 }
 
-const Home: React.FC<Props> = ({ isDarkMode }) => {
-
-    const theme = useMemo(() => isDarkMode ? "dark-mode" : "light-mode", [isDarkMode])
+const Home: React.FC<Props> = ({ theme, textColor }) => {
 
     return (
-        <>
-            <Row className={`home ${theme} align-items-center`} >
-                <Col className="w-50">
-                    <Container className="home__container m-0 w-50">
-                        <p className='home__desc'>Hello there! I am</p>
-
-                        <h1 className='home__title pb-3'>Aira Calingasan.</h1>
-
-                        <p className='home__desc'>An entry-level software engineer based in Pasig, Philippines.
-                            I make mobile applications during my free time and I enjoy building web
-                            applications using React.
-                        </p>
-
-                        <div className='home__button my-5'>
-                            <Button variant="secondary">Get in touch</Button>
-                            <Button className="mx-3 home__button__resume" variant="warning">Resume</Button>
-                        </div>
-                    </Container>
-                </Col>
-            </Row>;
-        </>
+        <div className={`${theme} home vh-100 w-100 d-flex align-items-center flex-row`}>
+            <Container className="home__container">
+                <p className={`home__subtitle ${textColor} m-0`}>Hello there! I am</p>
+                <p className={`home__title ${textColor} m-0`}>Aira Calingasan.</p>
+                <p className={`home__subtitle ${textColor}`}>I am an entry-level software engineer based in Pasig CIty, Philippines.</p>
+                <Button className='mt-5' variant="outline-light">RESUME</Button>
+            </Container>
+        </div>
 
     );
 }

@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import "./navMenu.scss"
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faLink, faMoon, faSquareFull, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 interface Props {
     handleDarkMode: () => void,
@@ -11,23 +12,28 @@ interface Props {
 
 const NavMenu: React.FC<Props> = ({ isDarkMode, handleDarkMode }) => {
 
-    const theme = useMemo(() => isDarkMode ? "dark__mode" : "light__mode", [isDarkMode])
+    const theme = useMemo(() => isDarkMode ? "dark-mode" : "light-mode", [isDarkMode])
 
     return (
-        <Navbar className={`nav-menu ${theme} p-0 py-5`} expand="lg" >
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="nav-menu__list">
-                    <Nav.Link className="nav-menu__item" href="#home">Home</Nav.Link>
-                    <Nav.Link className="nav-menu__item" href="#portfolio">Portfolio</Nav.Link>
-                    <Nav.Link className="nav-menu__item" href="#skills">Skills</Nav.Link>
-                    <Nav.Link className="nav-menu__item" href="#experience">Experience</Nav.Link>
-                    <Nav.Link className="nav-menu__item" href="#contact">Contact</Nav.Link>
-                    <Nav.Link className="nav-menu__icon" href="#contact" onClick={handleDarkMode}>
-                        {isDarkMode ? <FontAwesomeIcon className='nav-menu__icon' icon={faSun} /> : <FontAwesomeIcon className='nav-menu__icon' icon={faMoon} />}
-                    </Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
+        <Navbar className="dark-mode navbar py-5" expand="lg" fixed='top'>
+            <Container className='navbar__container'>
+
+                <Navbar.Toggle className='navbar__toggle ' aria-controls="basic-navbar-nav" />
+
+                <Navbar.Collapse className='menu' id="basic-navbar-nav">
+                    <Nav className="menu__list me-auto">
+                        <Nav.Link className="menu__item" href="#home">HOME</Nav.Link>
+                        <Nav.Link className="menu__item" href="#link">ABOUT</Nav.Link>
+                        <Nav.Link className="menu__item" href="#link">EXPERIENCE</Nav.Link>
+                        <Nav.Link className="menu__item" href="#link">PROJECTS</Nav.Link>
+                        <Nav.Link className="menu__item" href="#link">CONTACTS</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+
+                <FontAwesomeIcon className='ms-3' color='#fff' icon={faLinkedin} />
+                <FontAwesomeIcon className='ms-3' color='#fff' icon={faGithub} />
+                <FontAwesomeIcon className='ms-3' color='#fff' icon={faSun} />
+            </Container>
         </Navbar>
     );
 }
