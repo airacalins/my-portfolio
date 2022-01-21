@@ -1,40 +1,45 @@
 import React, { useMemo } from 'react';
-import "./navMenu.scss"
-import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faLink, faMoon, faSquareFull, faSun } from '@fortawesome/free-solid-svg-icons';
-import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import "./navMenu.scss"
 
 interface Props {
     handleDarkMode: () => void,
-    isDarkMode: boolean
+    isDarkMode: boolean,
 }
 
 const NavMenu: React.FC<Props> = ({ isDarkMode, handleDarkMode }) => {
 
-    const theme = useMemo(() => isDarkMode ? "dark-mode" : "light-mode", [isDarkMode])
+    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
+    const textColor = useMemo(() => isDarkMode ? "text-light" : "text-dark", [isDarkMode])
+
+    const themeClass = `${theme}-navbar`;
 
     return (
-        <Navbar className="dark-mode navbar py-5" expand="lg" fixed='top'>
-            <Container className='navbar__container'>
+        <Navbar className={`${themeClass} navbar py-5`} expand="lg" fixed='top'>
+            <Container>
 
-                <Navbar.Toggle className='navbar__toggle ' aria-controls="basic-navbar-nav" />
+                < Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-                <Navbar.Collapse className='menu' id="basic-navbar-nav">
-                    <Nav className="menu__list me-auto">
-                        <Nav.Link className="menu__item" href="#home">HOME</Nav.Link>
-                        <Nav.Link className="menu__item" href="#link">ABOUT</Nav.Link>
-                        <Nav.Link className="menu__item" href="#link">EXPERIENCE</Nav.Link>
-                        <Nav.Link className="menu__item" href="#link">PROJECTS</Nav.Link>
-                        <Nav.Link className="menu__item" href="#link">CONTACTS</Nav.Link>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link className="navbar__text text-light pe-3" href="#home">HOME</Nav.Link>
+                        <Nav.Link className="navbar__text text-light pe-3" href="#link">ABOUT</Nav.Link>
+                        <Nav.Link className="navbar__text text-light pe-3" href="#link">EXPERIENCE</Nav.Link>
+                        <Nav.Link className="navbar__text text-light pe-3" href="#link">PROJECTS</Nav.Link>
+                        <Nav.Link className="navbar__text text-light pe-3" href="#link">CONTACTS</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 
-                <FontAwesomeIcon className='ms-3' color='#fff' icon={faLinkedin} />
-                <FontAwesomeIcon className='ms-3' color='#fff' icon={faGithub} />
-                <FontAwesomeIcon className='ms-3' color='#fff' icon={faSun} />
-            </Container>
-        </Navbar>
+                <div>
+                    <FontAwesomeIcon className="text-light ms-3" icon={faLinkedin} />
+                    <FontAwesomeIcon className="text-light ms-3" icon={faGithub} />
+                    <FontAwesomeIcon onClick={handleDarkMode} className="text-light ms-3" icon={isDarkMode ? faSun : faMoon} />
+                </div>
+            </Container >
+        </Navbar >
     );
 }
 

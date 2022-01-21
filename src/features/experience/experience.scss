@@ -1,21 +1,24 @@
 @import '../../app/layouts/variables.scss';
 
+.dark-experience {
+    background-color: $dark-secondary;
+    padding-top: 10em;
+
+    &__card-title {
+        color: #495057;
+    }
+}
+
+.light-experience {
+    background-color: $light-secondary;
+    padding-top: 10em;
+
+    &__card-title {
+        color: lightgrey;
+    }
+}
+
 .experience {
-    &__dark {
-        background-color: $dark-secondary;
-        padding-top: 10em;
-    }
-
-    &__title { font-size: 4em; }
+    &__title {font-size: 4em; }
 }
 
-.work {
-    &__year{
-        font-size: 4em;
-        font-weight: bolder;
-    }
-
-    &__container {
-        background-color: $dark-secondary;
-    }
-}

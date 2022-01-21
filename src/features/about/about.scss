@@ -1,12 +1,16 @@
 @import '../../app/layouts/variables.scss';
 
-.about{
-    &__dark {
-        background-color: $dark-primary;
-        padding-top: 10em;
-    }
+.dark-about {
+    background-color: $dark-primary;
+    padding-top: 10em;
+}
 
+.light-about {
+    background-color: $light-primary;
+    padding-top: 10em;
+}
+
+.about {
     &__title {font-size: 4em;}
-
     &__description {font-size: 1.5em; letter-spacing: 1.5px;}
 }

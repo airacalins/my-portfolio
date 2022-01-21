@@ -1,15 +1,17 @@
 @import '../../layouts/variables.scss';
 
-.dark-mode.navbar {
+.dark-navbar {
     background: #1E1F1E;
 
-    & >.navbar__container {
-        & >.menu>.menu__list>.menu__item{
-            color: white;
-        }
-    }
 }
 
+.light-navbar {
+    background: #3E3F3E;
+}
+    
+.navbar {
+    &__text { letter-spacing: 0.1em; }
+}
 
     
 

@@ -1,15 +1,25 @@
 @import '../../app/layouts/variables.scss';
 
-.page {
-    &__dark{
-        background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('./home-bg.jpeg');
-        background-color: $dark-primary;
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat;
-        background-size: cover; /* Resize the background image to cover the entire container */
-        width: 100%;
-    }
 
+.dark-home {
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('./home-bg.jpeg');
+    background-color: $dark-primary;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    background-size: cover; /* Resize the background image to cover the entire container */
+    width: 100%;
+}
+
+.light-home {
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('./home-bg.jpeg');
+    background-color: $dark-primary;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    background-size: cover; /* Resize the background image to cover the entire container */
+    width: 100%;
+}
+
+.home {
     &__title{
         font-size: 5em;
         letter-spacing: 5px;
@@ -20,5 +30,3 @@
         letter-spacing: 2px;
     }
 }
-
-

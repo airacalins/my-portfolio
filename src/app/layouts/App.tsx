@@ -1,15 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import About from '../../features/about/About';
+import Contact from '../../features/contact/Contact';
 import Experience from '../../features/experience/Experience';
 import Home from '../../features/home/Home';
-import Portfolio from '../../features/portfolio/Portfolio';
+import Project from '../../features/projects/Project';
 import NavMenu from '../components/navMenu/NavMenu';
 
 function App() {
 
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  const theme = useMemo(() => isDarkMode ? "__dark" : "__light", [isDarkMode])
+  const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
   const textColor = useMemo(() => isDarkMode ? "text-light" : "", [isDarkMode])
 
   return (
@@ -18,7 +19,8 @@ function App() {
       <Home theme={theme} textColor={textColor} />
       <About theme={theme} textColor={textColor} />
       <Experience theme={theme} textColor={textColor} />
-      {/* <Portfolio isDarkMode={isDarkMode} /> */}
+      <Project theme={theme} textColor={textColor} />
+      <Contact theme={theme} textColor={textColor} />
     </div>
   );
 }

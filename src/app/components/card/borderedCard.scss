@@ -1,0 +1,13 @@
+@import '../../layouts/variables.scss';
+
+.dark-card {
+    background-color: $dark-secondary;
+    border: 1px solid white;
+
+}
+
+.light-card {
+    background-color: $light-primary;
+    border: 1px solid $dark-secondary;
+
+}

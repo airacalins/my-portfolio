@@ -21,22 +21,43 @@ const About: React.FC<Props> = ({ theme, textColor }) => {
     ])
 
     const [techStacks, setTechStacks] = useState([
-        { id: 1, name: "REACT-NATIVE", logo: faReact },
-        { id: 2, name: "REACT", logo: faReact },
-        { id: 3, name: "JAVASCRIPT", logo: faJs },
+        { id: 1, name: "REACT-NATIVE", icon: faReact },
+        { id: 2, name: "REACT", icon: faReact },
+        { id: 3, name: "JAVASCRIPT", icon: faJs },
         { id: 4, name: "TYPESCRIPT" },
-        { id: 5, name: "GIT", logo: faGit },
-        { id: 6, name: "FIGMA", logo: faFigma },
-        { id: 7, name: "JIRA", logo: faJira },
-        { id: 8, name: "BOOTSTRAP", logo: faBootstrap },
+        { id: 5, name: "GIT", icon: faGit },
+        { id: 6, name: "FIGMA", icon: faFigma },
+        { id: 7, name: "JIRA", icon: faJira },
+        { id: 8, name: "BOOTSTRAP", icon: faBootstrap },
         { id: 9, name: "SEMANTIC UI" },
-        { id: 10, name: "SASS", logo: faSass },
-        { id: 11, name: "HTML", logo: faHtml5 },
-        { id: 11, name: "CSS", logo: faCss3Alt },
+        { id: 10, name: "SASS", icon: faSass },
+        { id: 11, name: "HTML", icon: faHtml5 },
+        { id: 11, name: "CSS", icon: faCss3Alt },
     ])
 
+    const renderSocialLinks = (name: string, link: string) => {
+        return (
+            <div className='d-flex align-items-center py-2'>
+                <FontAwesomeIcon color='#fff' icon={faExternalLinkAlt} />
+                <h5 className={`${textColor} m-0 ms-2`}>{name}</h5>
+            </div>
+        )
+    }
+
+    const renderTechStack = (icon: IconProp, name: string) => {
+        return (
+            <Col className="my-2" lg={3} md>
+                <Button className="w-100" variant={theme === "dark" ? "outline-light" : "outline-dark"}>
+                    <FontAwesomeIcon className={`${textColor} me-3`} icon={icon} />{name}
+                </Button >
+            </Col>
+        )
+    }
+
+    const themeClass = `${theme}-about`;
+
     return (
-        <div className={`about about${theme}  vh-100`}>
+        <div className={`${themeClass} about`}>
             <Container>
                 <div className="mb-5">
                     <p className={`about__title ${textColor}`}>About</p>
@@ -44,40 +65,17 @@ const About: React.FC<Props> = ({ theme, textColor }) => {
                 </div>
 
                 <Row className="py-5">
-                    <Col lg={5}>
-                        <div>
-                            <h1 className={`${textColor} my-3`}>Social Links</h1>
-                            {
-                                socialLinks.map(s =>
-                                    <div className='d-flex align-items-center py-2'>
-                                        <FontAwesomeIcon color='#fff' icon={faExternalLinkAlt} />
-                                        <h5 className={`${textColor} m-0 ms-2`}>{s.name}</h5>
-                                    </div>
-                                )
-                            }
-                        </div>
+                    <Col className="mb-5" lg={5}>
+                        <h1 className={`${textColor} my-3`}>Social Links</h1>
+                        {socialLinks.map(s => renderSocialLinks(s.name, s.link))}
                     </Col>
 
-                    <Col lg={7}>
-                        <div>
-                            <h1 className={`${textColor} my-3`}>Technology Stack</h1>
-                            <Row>
-                                {
-                                    techStacks.map(t =>
-                                        <Col className="my-2" lg={3} md>
-                                            <Button className="w-100" variant="outline-light">
-                                                <FontAwesomeIcon className='me-3' color='#fff' icon={t.logo as IconProp} />{t.name}
-                                            </Button>
-                                        </Col>
-                                    )
-                                }
-                            </Row>
-                        </div>
+                    <Col className="mb-5" lg={7}>
+                        <h1 className={`${textColor} my-3`}>Technology Stack</h1>
+                        <Row>{techStacks.map(t => renderTechStack(t.icon as IconProp, t.name))}</Row>
                     </Col>
                 </Row>
             </Container>
-
-
         </div >
     );
 }
