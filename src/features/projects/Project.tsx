@@ -1,36 +1,46 @@
 import React from 'react';
-import { Card, Col, Container, Row } from "react-bootstrap";
-import "./project.scss"
-import projectImage from "./project-1.jpg"
+import { Card, Col, Container, NavLink, Row } from "react-bootstrap";
+import projectImage from "./project-1.png"
 
 interface Props {
     theme: string,
-    textColor: string,
 }
 
-const Project: React.FC<Props> = ({ theme, textColor }) => {
+const Project: React.FC<Props> = ({ theme }) => {
 
-    const themeClass = `${theme}-project`
+    const themeClass = `${theme}__primary`
+    const textColor = theme === "dark" ? "text-light" : "text-dark";
 
     return (
-        <div className={`${themeClass} m-0`}>
-            <Container className='project'>
+        <div className={`${themeClass} padding__top-8 vh-100`}>
+            <Container>
                 <div className="mb-5">
-                    <p className={`project__title ${textColor}`}>Featured Projects</p>
+                    <p className={`title__huge ${textColor}`}>Featured Projects</p>
                 </div>
 
-                <Row>
-                    <Col lg={6} >
-                        <Card className="bordered rounded w-100" bg="dark" >
-                            <Card.Img variant="top" src={projectImage} />
-                            <Card.Body className="card__body">
-                                <Card.Title className="text-light">POS Mobile</Card.Title>
-                                <Card.Text className="text-light">Point of Sale mobile application which helps business owners to track their products as well as their business finances.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                <NavLink href='https://fast-badlands-66183.herokuapp.com/login' target="_blank">
+                    <Row>
+                        <Col lg={6} >
+                            <Card className="bordered rounded w-100" bg="dark" >
+                                <Card.Img variant="top" src={projectImage} />
+                                <Card.Body className="card__container">
+                                    <Card.Title className="text-light">
+                                        Rental Management App
+                                    </Card.Title>
+
+                                    <Card.Text className="text-light">
+                                        A system with mobile application used to pay by the leesee and posted in web application for approval.
+                                    </Card.Text>
+
+                                    <Card.Text className="text-light">
+                                        React, Typescript, React-Native, Redux, Bootstrap, SASS, and .NET Core API
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
+                </NavLink>
+
             </Container>
         </div>
     )

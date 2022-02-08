@@ -1,22 +1,20 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import "./contact.scss"
 
 interface Props {
     theme: string,
-    textColor: string,
 }
 
+const Contact: React.FC<Props> = ({ theme }) => {
 
-const Contact: React.FC<Props> = ({ theme, textColor }) => {
-
-    const themeClass = `${theme}-contact`
+    const themeClass = `${theme}__secondary`
+    const textColor = theme === "dark" ? "text-light" : "text-dark";
 
     return (
-        <div className={`${themeClass} m-0 vh-100`}>
-            <Container className='contact__container'>
+        <div className={`${themeClass} padding__top-8 vh-100`}>
+            <Container>
                 <div className="mb-5">
-                    <p className={`contact__title ${textColor}`}>Contact</p>
+                    <p className={`title__huge ${textColor}`}>Contact</p>
                     <div className='my-5'>
                         <h1 className={`${textColor}`}>Get in touch, let's talk!</h1>
                         <h4 className={`${textColor}`}>Feel free to send me a message</h4>

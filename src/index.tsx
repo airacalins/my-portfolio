@@ -5,9 +5,13 @@ import './app/layouts/styles.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './app/layouts/App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <App />,
+  // <BrowserRouter>
+  <App />
+  // </BrowserRouter>
+  ,
   document.getElementById('root')
 );
 

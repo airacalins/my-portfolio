@@ -4,6 +4,7 @@ import Contact from '../../features/contact/Contact';
 import Experience from '../../features/experience/Experience';
 import Home from '../../features/home/Home';
 import Project from '../../features/projects/Project';
+import Footer from '../components/footer/Footer';
 import NavMenu from '../components/navMenu/NavMenu';
 
 function App() {
@@ -14,15 +15,24 @@ function App() {
   const textColor = useMemo(() => isDarkMode ? "text-light" : "", [isDarkMode])
 
   return (
-    <div className="vh-100 w-100" >
+    <div >
       <NavMenu isDarkMode={isDarkMode} handleDarkMode={() => setIsDarkMode(!isDarkMode)} />
-      <Home theme={theme} textColor={textColor} />
-      <About theme={theme} textColor={textColor} />
-      <Experience theme={theme} textColor={textColor} />
-      <Project theme={theme} textColor={textColor} />
-      <Contact theme={theme} textColor={textColor} />
+      <Home theme={theme} />
+      <About theme={theme} />
+      <Experience theme={theme} />
+      <Project theme={theme} />
+      <Contact theme={theme} />
+      <Footer />
     </div>
   );
 }
 
 export default App;
+
+{/* <>
+  <Route path="/home" element={<Home />} />
+  <Route path="/about" element={<About />} /> */}
+{/* <Route path="/experience" element={<Experience />} />
+<Route path="/project" element={<Project />} />
+<Route path="/contact" element={<Contact />} /> */}
+// </>

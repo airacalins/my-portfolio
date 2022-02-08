@@ -4,23 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBootstrap, faCss3Alt, faFigma, faGit, faHtml5, faJira, faJs, faReact, faSass } from '@fortawesome/free-brands-svg-icons';
-import "./about.scss"
 
 interface Props {
     theme: string,
-    textColor: string,
 }
 
-const About: React.FC<Props> = ({ theme, textColor }) => {
+const About: React.FC<Props> = ({ theme }) => {
 
-    const [socialLinks, setSociallLinks] = useState([
-        { id: 1, name: "Instagram", link: "" },
-        { id: 2, name: "Facebook", link: "" },
-        { id: 3, name: "GitHub", link: "" },
-        { id: 4, name: "LinkedIn", link: "" }
-    ])
+    const socialLinks = [
+        { id: 3, name: "GitHub", link: "https://github.com/airacalins" },
+        { id: 4, name: "LinkedIn", link: "https://www.linkedin.com/in/aira-galias-4264481a8/" }
+    ]
 
-    const [techStacks, setTechStacks] = useState([
+    const techStacks = [
         { id: 1, name: "REACT-NATIVE", icon: faReact },
         { id: 2, name: "REACT", icon: faReact },
         { id: 3, name: "JAVASCRIPT", icon: faJs },
@@ -33,14 +29,16 @@ const About: React.FC<Props> = ({ theme, textColor }) => {
         { id: 10, name: "SASS", icon: faSass },
         { id: 11, name: "HTML", icon: faHtml5 },
         { id: 11, name: "CSS", icon: faCss3Alt },
-    ])
+    ]
+
+    const textColor = theme === "dark" ? "text-light" : "text-dark";
 
     const renderSocialLinks = (name: string, link: string) => {
         return (
-            <div className='d-flex align-items-center py-2'>
+            <a className='text__no-decoration d-flex align-items-center py-2'>
                 <FontAwesomeIcon color='#fff' icon={faExternalLinkAlt} />
                 <h5 className={`${textColor} m-0 ms-2`}>{name}</h5>
-            </div>
+            </a>
         )
     }
 
@@ -54,14 +52,14 @@ const About: React.FC<Props> = ({ theme, textColor }) => {
         )
     }
 
-    const themeClass = `${theme}-about`;
+    const themeClass = `${theme}__primary`;
 
     return (
-        <div className={`${themeClass} about`}>
+        <div className={`${themeClass} padding__top-8`}>
             <Container>
                 <div className="mb-5">
-                    <p className={`about__title ${textColor}`}>About</p>
-                    <p className={`about__description ${textColor}`}>I am an entry-level software engineer based in Pasig, Philippines. I make mobile applications during my free time and I enjoy building web applications using React. </p>
+                    <p className={`title__huge ${textColor}`}>About</p>
+                    <h2 className={textColor}>I am an entry-level software engineer based in Pasig, Philippines. I make mobile applications during my free time and I enjoy building web applications using React. </h2>
                 </div>
 
                 <Row className="py-5">
@@ -76,7 +74,7 @@ const About: React.FC<Props> = ({ theme, textColor }) => {
                     </Col>
                 </Row>
             </Container>
-        </div >
+        </div>
     );
 }
 

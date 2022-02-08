@@ -11,3 +11,9 @@
     border: 1px solid $dark-secondary;
 
 }
+
+.card {
+    &__link {
+        text-decoration: none;
+    }
+}

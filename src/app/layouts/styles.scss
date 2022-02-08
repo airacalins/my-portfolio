@@ -1,7 +1,61 @@
-// .light-mode {
-// 	background-color: white;
-// }
+@import './variables.scss';
 
-// .dark-mode {
-// 	background-color: #151F28;
-// }
+.card {
+    &__container { background-color: #000; }
+}
+
+.dark {
+    &__primary { background-color: $dark-primary; }
+    &__secondary { background-color: $dark-secondary; }
+}
+
+.home {
+    &__dark {
+        background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('../../images/home-bg.jpeg');
+    }
+
+    &__light {
+        background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('../../images/home-bg.jpeg');
+    }
+}
+
+.image {
+    &__background-full {
+        background-color: $dark-primary;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+}
+
+.letter-spacing {
+    &__2 { letter-spacing: 2px }
+    &__5 { letter-spacing: 5px }
+}
+
+.light {
+    &__primary { background-color: $light-primary; }
+    &__secondary { background-color: $light-secondary; }
+}
+
+.navbar {
+    &__dark { background: #1E1F1E; }
+    &__light { background: #3E3F3E; }
+}
+
+.padding {
+    &__top-8 {padding-top: 8em;}
+    &__bottom-8 {padding-bottom: 8em;}
+}
+
+.text {
+    &__grey { color: #495057; }
+    &__no-decoration {text-decoration: none;}
+}
+
+.title {
+    &__huge {font-size: 4em;}
+}   
+
+
