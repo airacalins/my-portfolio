@@ -5,12 +5,15 @@ import './app/layouts/styles.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './app/layouts/App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import NavMenu from './app/components/navMenu/NavMenu';
+import Footer from './app/components/footer/Footer';
 
 ReactDOM.render(
-  // <BrowserRouter>
-  <App />
-  // </BrowserRouter>
+  <>
+    {/* <NavMenu /> */}
+    <App />
+    {/* <Footer /> */}
+  </>
   ,
   document.getElementById('root')
 );

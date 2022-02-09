@@ -4,7 +4,7 @@ import { Container, Nav } from 'react-bootstrap';
 
 const Footer = ({ }) => {
     return (
-        <div className='footer bg-dark py-3'>
+        <div className='footer border-top bg-dark py-3'>
             <Container className='footer__container d-flex justify-content-between align-items-center'>
                 <p className='text-light m-0'>Aira Galias</p>
                 <div className='d-flex'>

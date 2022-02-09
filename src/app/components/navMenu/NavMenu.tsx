@@ -1,17 +1,15 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { ThemeContext } from '../../layouts/App';
 
-interface Props {
-    handleDarkMode: () => void,
-    isDarkMode: boolean,
-}
+const NavMenu = ({ }) => {
 
-const NavMenu: React.FC<Props> = ({ isDarkMode, handleDarkMode }) => {
-
+    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
+
     const themeClass = `navbar__${theme}`;
 
     return (
@@ -23,10 +21,10 @@ const NavMenu: React.FC<Props> = ({ isDarkMode, handleDarkMode }) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link className="text-light pe-3" href="/">HOME</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/link">ABOUT</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/link">EXPERIENCE</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/link">PROJECTS</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/link">CONTACTS</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/about">ABOUT</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/experience">EXPERIENCE</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/project">PROJECTS</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/contact">CONTACTS</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 
@@ -39,7 +37,7 @@ const NavMenu: React.FC<Props> = ({ isDarkMode, handleDarkMode }) => {
                         <FontAwesomeIcon className="text-light" icon={faLinkedin} />
                     </Nav.Link>
 
-                    <FontAwesomeIcon onClick={handleDarkMode} className="text-light" icon={isDarkMode ? faSun : faMoon} />
+                    <FontAwesomeIcon onClick={() => setIsDarkMode(!isDarkMode)} className="text-light" icon={isDarkMode ? faSun : faMoon} />
                 </div>
             </Container >
         </Navbar >

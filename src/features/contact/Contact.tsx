@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from '../../app/layouts/App';
 import { Container } from 'react-bootstrap';
 
-interface Props {
-    theme: string,
-}
+interface Props { }
 
-const Contact: React.FC<Props> = ({ theme }) => {
+const Contact: React.FC<Props> = ({ }) => {
+
+    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const themeClass = `${theme}__secondary`
     const textColor = theme === "dark" ? "text-light" : "text-dark";
 
     return (
-        <div className={`${themeClass} padding__top-8 vh-100`}>
+        <div className={`${themeClass} padding__top-12 vh-100`}>
             <Container>
                 <div className="mb-5">
                     <p className={`title__huge ${textColor}`}>Contact</p>

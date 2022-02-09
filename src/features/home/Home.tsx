@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { Button, Container } from 'react-bootstrap';
+import { ThemeContext } from '../../app/layouts/App';
 
-interface Props {
-    theme: string,
-}
+interface Props { }
 
-const Home: React.FC<Props> = ({ theme }) => {
+const Home: React.FC<Props> = ({ }) => {
+
+    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const themeClass = `home__${theme}`;
 

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from '../../app/layouts/App';
 import { Container } from "react-bootstrap";
 
 import Certificate from '../certificate/Certificate';
 import BorderedCard from '../../app/components/card/BorderedCard';
 
-interface Props {
-    theme: string,
-}
+interface Props { }
 
-const Experience: React.FC<Props> = ({ theme }) => {
+const Experience: React.FC<Props> = ({ }) => {
+
+    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const experiences = [
         {

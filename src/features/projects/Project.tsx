@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from '../../app/layouts/App';
 import { Card, Col, Container, NavLink, Row } from "react-bootstrap";
 import projectImage from "./project-1.png"
 
-interface Props {
-    theme: string,
-}
+interface Props { }
 
-const Project: React.FC<Props> = ({ theme }) => {
+const Project: React.FC<Props> = ({ }) => {
+
+    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const themeClass = `${theme}__primary`
     const textColor = theme === "dark" ? "text-light" : "text-dark";
@@ -44,7 +46,6 @@ const Project: React.FC<Props> = ({ theme }) => {
             </Container>
         </div>
     )
-
 }
 
 export default Project;

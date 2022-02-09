@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from '../../app/layouts/App';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBootstrap, faCss3Alt, faFigma, faGit, faHtml5, faJira, faJs, faReact, faSass } from '@fortawesome/free-brands-svg-icons';
 
-interface Props {
-    theme: string,
-}
+const About = ({ }) => {
 
-const About: React.FC<Props> = ({ theme }) => {
+    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const socialLinks = [
         { id: 3, name: "GitHub", link: "https://github.com/airacalins" },
@@ -55,7 +55,7 @@ const About: React.FC<Props> = ({ theme }) => {
     const themeClass = `${theme}__primary`;
 
     return (
-        <div className={`${themeClass} padding__top-8`}>
+        <div className={`${themeClass} padding__top-8  min-vh-100`}>
             <Container>
                 <div className="mb-5">
                     <p className={`title__huge ${textColor}`}>About</p>
