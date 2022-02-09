@@ -5,7 +5,7 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { ThemeContext } from '../../layouts/App';
 
-const NavMenu = ({ }) => {
+const NavMenu = () => {
 
     const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
@@ -20,11 +20,11 @@ const NavMenu = ({ }) => {
 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link className="text-light pe-3" href="/">HOME</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/about">ABOUT</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/experience">EXPERIENCE</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/project">PROJECTS</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/contact">CONTACTS</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/my-portfolio">HOME</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/my-portfolio/about">ABOUT</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/my-portfolio/experience">EXPERIENCE</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/my-portfolio/project">PROJECTS</Nav.Link>
+                        <Nav.Link className="text-light pe-3" href="/my-portfolio/contact">CONTACTS</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 

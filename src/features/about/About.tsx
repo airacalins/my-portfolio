@@ -6,9 +6,9 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBootstrap, faCss3Alt, faFigma, faGit, faHtml5, faJira, faJs, faReact, faSass } from '@fortawesome/free-brands-svg-icons';
 
-const About = ({ }) => {
+const About = () => {
 
-    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const [isDarkMode] = useContext(ThemeContext);
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const socialLinks = [
@@ -35,7 +35,7 @@ const About = ({ }) => {
 
     const renderSocialLinks = (name: string, link: string) => {
         return (
-            <a className='text__no-decoration d-flex align-items-center py-2'>
+            <a href={link} target="_blank" className='text__no-decoration d-flex align-items-center py-2'>
                 <FontAwesomeIcon color='#fff' icon={faExternalLinkAlt} />
                 <h5 className={`${textColor} m-0 ms-2`}>{name}</h5>
             </a>

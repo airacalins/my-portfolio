@@ -3,11 +3,9 @@ import { ThemeContext } from '../../app/layouts/App';
 import { Card, Col, Container, NavLink, Row } from "react-bootstrap";
 import projectImage from "./project-1.png"
 
-interface Props { }
+const Project = () => {
 
-const Project: React.FC<Props> = ({ }) => {
-
-    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const [isDarkMode] = useContext(ThemeContext);
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const themeClass = `${theme}__primary`

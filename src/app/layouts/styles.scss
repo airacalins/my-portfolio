@@ -1,7 +1,14 @@
 @import './variables.scss';
 
+.bg {
+    &__secondary { background-color: $dark-secondary !important; }
+    &__white { background-color: #fff !important; }
+}
+
 .card {
-    &__container { background-color: #000; }
+    &__container { 
+        border-radius: 4px;
+    }
 }
 
 .dark {

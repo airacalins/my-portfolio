@@ -2,7 +2,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Nav } from 'react-bootstrap';
 
-const Footer = ({ }) => {
+const Footer = () => {
     return (
         <div className='footer border-top bg-dark py-3'>
             <Container className='footer__container d-flex justify-content-between align-items-center'>

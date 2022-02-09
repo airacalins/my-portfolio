@@ -5,11 +5,8 @@ import { Container } from "react-bootstrap";
 import Certificate from '../certificate/Certificate';
 import BorderedCard from '../../app/components/card/BorderedCard';
 
-interface Props { }
-
-const Experience: React.FC<Props> = ({ }) => {
-
-    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+const Experience = () => {
+    const [isDarkMode] = useContext(ThemeContext);
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const experiences = [
@@ -53,8 +50,6 @@ const Experience: React.FC<Props> = ({ }) => {
                                 <h1 className="text__grey title__huge">{e.year}</h1>
                                 {e.works.map(w =>
                                     <BorderedCard
-                                        theme={theme}
-                                        textColor={textColor}
                                         title={w.title}
                                         subtitle={w.companyName}
                                         description={w.description}
@@ -67,7 +62,7 @@ const Experience: React.FC<Props> = ({ }) => {
                 </Container>
             </div >
 
-            <Certificate theme={theme} textColor={textColor} />
+            <Certificate />
         </div>
 
     );

@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from '../../app/layouts/App'; import { Col, Container, Row } from 'react-bootstrap';
 import BorderedCard from '../../app/components/card/BorderedCard';
 
-interface Props {
-    theme: string,
-    textColor: string,
-}
-
-const Certificate: React.FC<Props> = ({ theme, textColor }) => {
+const Certificate = () => {
+    const [isDarkMode] = useContext(ThemeContext);
+    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const certificates = [
         { id: 5, name: "600-hours Internship Completion", author: "Nutricoach", description: "2021 Mar 15", imageSource: "/images/20210315-Nutricoach.png" },
@@ -26,14 +23,14 @@ const Certificate: React.FC<Props> = ({ theme, textColor }) => {
         <div className={`${themeClass} padding__top-8 padding__bottom-8`}>
             <Container>
                 <div className="mb-5">
-                    <p className={`title__huge ${textColor}`}>Certificates</p>
+                    <p className={`title__huge ${isDarkMode ? "text-light" : "text-dark"}`}>Certificates</p>
                 </div>
 
                 <Row className="align-items-end">
                     {
                         certificates.map(c =>
                             <Col lg={4}>
-                                <BorderedCard theme={theme} textColor={textColor} title={c.name} subtitle={c.author} description={c.description} link={c.imageSource} />
+                                <BorderedCard title={c.name} subtitle={c.author} description={c.description} link={c.imageSource} />
                             </Col>
                         )
                     }

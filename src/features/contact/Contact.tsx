@@ -2,11 +2,9 @@ import React, { useContext, useMemo } from 'react';
 import { ThemeContext } from '../../app/layouts/App';
 import { Container } from 'react-bootstrap';
 
-interface Props { }
+const Contact = () => {
 
-const Contact: React.FC<Props> = ({ }) => {
-
-    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+    const [isDarkMode] = useContext(ThemeContext);
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const themeClass = `${theme}__secondary`
