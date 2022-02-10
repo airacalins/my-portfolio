@@ -1,14 +1,21 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { ThemeContext } from '../../layouts/App';
+import { useLocation } from 'react-router-dom';
 
 const NavMenu = () => {
 
     const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
+
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log(location);
+    }, [location])
 
     const themeClass = `navbar__${theme}`;
 
@@ -20,11 +27,11 @@ const NavMenu = () => {
 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link className="text-light pe-3" href="/my-portfolio/#">HOME</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/my-portfolio/#/about">ABOUT</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/my-portfolio/#/experience">EXPERIENCE</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/my-portfolio/#/project">PROJECTS</Nav.Link>
-                        <Nav.Link className="text-light pe-3" href="/my-portfolio/#/contact">CONTACTS</Nav.Link>
+                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/" ? "text__bold" : ""}`} href="/my-portfolio/#">HOME</Nav.Link>
+                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/about" ? "text__bold" : ""}`} href="/my-portfolio/#/about">ABOUT</Nav.Link>
+                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/experience" ? "text__bold" : ""}`} href="/my-portfolio/#/experience">EXPERIENCE</Nav.Link>
+                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/project" ? "text__bold" : ""}`} href="/my-portfolio/#/project">PROJECTS</Nav.Link>
+                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/contact" ? "text__bold" : ""}`} href="/my-portfolio/#/contact">CONTACTS</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 

@@ -18,8 +18,8 @@ function App() {
 
   return (
     <ThemeContext.Provider value={[isDarkMode, setIsDarkMode]}>
-      <NavMenu />
       <HashRouter>
+        <NavMenu />
         <Routes>
           <Route path="/" element={<FullPage />} />
           <Route path="/about" element={<About />} />

@@ -18,7 +18,7 @@ const BorderedCard: React.FC<Props> = ({ title, subtitle, description, link }) =
     const textColor = isDarkMode ? "text-light" : "text-dark"
 
     return (
-        <Card className={`${isDarkMode ? "bg__secondary" : "bg__white"} mb-3 rounded border border-white`} >
+        <Card className={`${isDarkMode ? "bg__secondary" : "bg__white border-dark"} mb-4 rounded border`} >
             <Card.Body className="py-4">
                 <Card.Title className={textColor}>{title}</Card.Title>
                 <Card.Text className={textColor}>{subtitle}</Card.Text>
