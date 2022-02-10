@@ -20,10 +20,10 @@ const NavMenu = () => {
     const themeClass = `navbar__${theme}`;
 
     return (
-        <Navbar className={`${themeClass} py-4`} expand="lg">
+        <Navbar className={`${themeClass} py-4`} expand="lg" variant="dark">
             <Container>
 
-                < Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
