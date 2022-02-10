@@ -52,8 +52,7 @@
 }
 
 .padding {
-    &__top-8 {padding-top: 8em;}
-    &__top-12 {padding-top: 12em;}
+    &__top-3 {padding-top: 3em;}
     &__bottom-8 {padding-bottom: 8em;}
 }
 
@@ -66,4 +65,23 @@
     &__huge {font-size: 4em;}
 }   
 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 

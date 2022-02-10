@@ -37,7 +37,7 @@ const Experience = () => {
     const textColor = theme === "dark" ? "text-light" : "text-dark";
 
     return (
-        <div className={`${themeClass} padding__top-8`}>
+        <div className={`${themeClass} padding__top-3`}>
             <div>
                 <Container>
                     <div className="mb-5">

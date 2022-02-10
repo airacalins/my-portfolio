@@ -20,7 +20,7 @@ const Certificate = () => {
     const themeClass = `${theme}__secondary`
 
     return (
-        <div className={`${themeClass} padding__top-8 padding__bottom-8`}>
+        <div className={`${themeClass} padding__top-3 padding__bottom-8`}>
             <Container>
                 <div className="mb-5">
                     <p className={`title__huge ${isDarkMode ? "text-light" : "text-dark"}`}>Certificates</p>
