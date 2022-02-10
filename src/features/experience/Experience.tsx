@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
 import { ThemeContext } from '../../app/layouts/App';
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 import Certificate from '../certificate/Certificate';
 import BorderedCard from '../../app/components/card/BorderedCard';
@@ -44,7 +44,7 @@ const Experience = () => {
                     title: "Bootcamp",
                     companyName: "Zuitt Bootcamp",
                     description: "A short course covering the implementation of continuous integration, delivery and deployment for applications using Gitlab and Heroku.",
-                    link: "/my-portfolio/images/20200903-Zuitt.png"
+                    link: "/images/20200903-Zuitt.png"
                 },
             ]
         },
@@ -61,10 +61,11 @@ const Experience = () => {
                         <p className={`title__huge ${textColor}`}>Experience</p>
                     </div>
 
-                    {experiences.map(e =>
-                        <div className="d-flex justify-content-center pb-5">
-                            <div className="w-50">
+                    <Row>
+                        {experiences.map(e =>
+                            <Col className="justify-content-center pb-5" lg={{ span: 6, offset: 3 }}>
                                 <h1 className="text__grey title__huge">{e.year}</h1>
+
                                 {e.works.map(w =>
                                     <BorderedCard
                                         title={w.title}
@@ -73,9 +74,11 @@ const Experience = () => {
                                         link={w.link}
                                     />
                                 )}
-                            </div>
-                        </div>
-                    )}
+                            </Col>
+                        )}
+                    </Row>
+
+
                 </Container>
             </div >
 
