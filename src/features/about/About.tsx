@@ -45,9 +45,10 @@ const About = () => {
     const renderTechStack = (icon: IconProp, name: string) => {
         return (
             <Col className="my-2" lg={3} md>
-                <Button className="w-100" variant={theme === "dark" ? "outline-light" : "outline-dark"}>
-                    <FontAwesomeIcon className={`${textColor} me-3`} icon={icon} />{name}
-                </Button >
+                <div className={`align-items-center d-flex w-100 border p-2 rounded ${theme === "light" ? "border-dark" : ""}`}>
+                    <FontAwesomeIcon className={`${textColor} me-2`} icon={icon} />
+                    <p className={`${textColor} m-0`}>{name}</p>
+                </div>
             </Col>
         )
     }
