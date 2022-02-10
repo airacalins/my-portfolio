@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import About from '../../features/about/About';
 import Contact from '../../features/contact/Contact';
 import Experience from '../../features/experience/Experience';
@@ -21,11 +21,11 @@ function App() {
       <NavMenu />
       <BrowserRouter>
         <Routes>
-          <Route path="/my-portfolio" element={<FullPage />} />
-          <Route path="/my-portfolio/about" element={<About />} />
-          <Route path="/my-portfolio/experience" element={<Experience />} />
-          <Route path="/my-portfolio/project" element={<Project />} />
-          <Route path="/my-portfolio/contact" element={<Contact />} />
+          <Route path="/" element={<FullPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
 
