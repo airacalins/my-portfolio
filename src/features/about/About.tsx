@@ -37,7 +37,7 @@ const About = () => {
     const renderSocialLinks = (name: string, link: string) => {
         return (
             <a href={link} target="_blank" className='text__no-decoration d-flex align-items-center py-2'>
-                <FontAwesomeIcon color='#fff' icon={faExternalLinkAlt} />
+                <FontAwesomeIcon className={textColor} icon={faExternalLinkAlt} />
                 <h5 className={`${textColor} m-0 ms-2`}>{name}</h5>
             </a>
         )
