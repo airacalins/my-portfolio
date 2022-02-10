@@ -17,7 +17,7 @@ const Home = () => {
                 <p className=" letter-spacing__2 text-light">I am an entry-level software engineer based in Pasig CIty, Philippines.</p>
                 <a href="/my-portfolio/AiraGalias-Resume.pdf" download>
                     <Button className='button__outline-light mt-5 py-2' variant="outline-light">
-                        Download
+                        Download CV
                     </Button>
                 </a>
             </Container>
