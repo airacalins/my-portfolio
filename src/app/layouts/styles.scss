@@ -7,6 +7,7 @@
 
 .card {
     &__container { 
+        background-color: #000;
         border-radius: 4px;
     }
 }
@@ -52,11 +53,13 @@
 }
 
 .padding {
+    &__y3 {padding: 3em 0 }
     &__top-3 {padding-top: 3em;}
     &__bottom-8 {padding-bottom: 8em;}
 }
 
 .text {
+    &__bold { font-weight: bold;}
     &__grey { color: #495057; }
     &__no-decoration {text-decoration: none;}
 }

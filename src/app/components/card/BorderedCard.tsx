@@ -27,7 +27,7 @@ const BorderedCard: React.FC<Props> = ({ title, subtitle, description, link }) =
                     link ? <Card.Text className="text-dark">
                         <Nav.Link className="d-flex align-items-center p-0" href={link} target="_blank" >
                             <FontAwesomeIcon className={`${textColor} me-3`} icon={faExternalLinkAlt} />
-                            <p className={`${textColor} m-0`} >View Certificates</p>
+                            <p className={`${textColor} m-0`} >View Certificate</p>
                         </Nav.Link>
                     </Card.Text> : <></>
                 }

@@ -14,21 +14,38 @@ const Experience = () => {
             id: 1,
             year: 2022,
             works: [
-                { id: 1, title: "Graduation", companyName: "AMA University", description: "Bachelor's Degree in Information Technology", link: "" },
+                {
+                    id: 1, title: "Graduation",
+                    companyName: "AMA University",
+                    description: "Bachelor's Degree in Information Technology",
+                    link: ""
+                },
             ]
         },
         {
             id: 2,
             year: 2020,
             works: [
-                { id: 1, title: "Internship", companyName: "Nutricoach Inc.", description: "Test application features and check if it follows the applications functionality stated in the task tracking system.", link: "/images/20210315-Nutricoach.png" },
+                {
+                    id: 1,
+                    title: "Internship",
+                    companyName: "Nutricoach Inc.",
+                    description: "Test application features and check if it follows the applications functionality stated in the task tracking system.",
+                    link: "/my-portfolio/images/20210315-Nutricoach.png"
+                },
             ]
         },
         {
             id: 3,
             year: 2019,
             works: [
-                { id: 1, title: "Bootcamp", companyName: "Zuitt Bootcamp", description: "A short course covering the implementation of continuous integration, delivery and deployment for applications using Gitlab and Heroku.", link: "/images/20200903-Zuitt.png" },
+                {
+                    id: 1,
+                    title: "Bootcamp",
+                    companyName: "Zuitt Bootcamp",
+                    description: "A short course covering the implementation of continuous integration, delivery and deployment for applications using Gitlab and Heroku.",
+                    link: "/my-portfolio/images/20200903-Zuitt.png"
+                },
             ]
         },
     ]

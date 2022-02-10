@@ -12,7 +12,7 @@ const Project = () => {
     const textColor = theme === "dark" ? "text-light" : "text-dark";
 
     return (
-        <div className={`${themeClass} padding__top-3 vh-100`}>
+        <div className={`${themeClass} padding__y-3`}>
             <Container>
                 <div className="mb-5">
                     <p className={`title__huge ${textColor}`}>Featured Projects</p>
