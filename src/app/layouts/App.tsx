@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import About from '../../features/about/About';
 import Contact from '../../features/contact/Contact';
 import Experience from '../../features/experience/Experience';
@@ -19,7 +19,7 @@ function App() {
   return (
     <ThemeContext.Provider value={[isDarkMode, setIsDarkMode]}>
       <NavMenu />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<FullPage />} />
           <Route path="/about" element={<About />} />
@@ -27,7 +27,7 @@ function App() {
           <Route path="/project" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
 
       <Footer />
     </ThemeContext.Provider >
