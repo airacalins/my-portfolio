@@ -14,7 +14,7 @@ const About = () => {
 
     const socialLinks = [
         { id: 3, name: "GitHub", link: "https://github.com/airacalins" },
-        { id: 4, name: "LinkedIn", link: "https://www.linkedin.com/in/aira-galias-4264481a8/" }
+        { id: 4, name: "LinkedIn", link: "https://www.linkedin.com/in/aira-calingasan-b40852233/" }
     ]
 
     const techStacks = [

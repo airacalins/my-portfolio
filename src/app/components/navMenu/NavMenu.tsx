@@ -40,7 +40,7 @@ const NavMenu = () => {
                         <FontAwesomeIcon className="text-light" icon={faGithub} />
                     </Nav.Link>
 
-                    <Nav.Link className='p-0 me-3' href="https://www.linkedin.com/in/aira-galias-4264481a8/" target="_blank">
+                    <Nav.Link className='p-0 me-3' href="https://www.linkedin.com/in/aira-calingasan-b40852233/" target="_blank">
                         <FontAwesomeIcon className="text-light" icon={faLinkedin} />
                     </Nav.Link>
 
