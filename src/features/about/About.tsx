@@ -13,8 +13,8 @@ const About = () => {
     const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
 
     const socialLinks = [
-        { id: 3, name: "GitHub", link: "https://github.com/airacalins" },
-        { id: 4, name: "LinkedIn", link: "https://www.linkedin.com/in/aira-calingasan-b40852233/" }
+        { id: 1, name: "GitHub", link: "https://github.com/airacalins" },
+        { id: 2, name: "LinkedIn", link: "https://www.linkedin.com/in/aira-calingasan-b40852233/" }
     ]
 
     const techStacks = [
@@ -30,6 +30,7 @@ const About = () => {
         { id: 10, name: "SASS", icon: faSass },
         { id: 11, name: "HTML", icon: faHtml5 },
         { id: 11, name: "CSS", icon: faCss3Alt },
+        { id: 11, name: "FLUTTER"},
     ]
 
     const textColor = theme === "dark" ? "text-light" : "text-dark";

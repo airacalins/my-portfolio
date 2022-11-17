@@ -18,9 +18,16 @@ const Experience = () => {
                     id: 1, title: "Graduation",
                     companyName: "AMA University",
                     description: "Bachelor's Degree in Information Technology",
-                    link: ""
+                    link: undefined,
                 },
-            ]
+                {
+                    id: 2,
+                    title: "Flutter Developer",
+                    companyName: "FFUF Manila Inc",
+                    description: "Develops innovative, scalable, fault-tolerant software solutions for our clients in Europe. Works closely with clients, UX designers, business analysts, solutions architects, and other developers.",
+                    link: undefined,
+                },
+            ],
         },
         {
             id: 2,
@@ -73,7 +80,7 @@ const Experience = () => {
                                         description={w.description}
                                         link={w.link}
                                     />
-                                )}
+                                ).reverse()}
                             </Col>
                         )}
                     </Row>

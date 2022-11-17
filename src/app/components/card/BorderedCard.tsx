@@ -9,7 +9,7 @@ interface Props {
     title: string,
     subtitle: string,
     description: string,
-    link: string,
+    link?: string,
 }
 
 const BorderedCard: React.FC<Props> = ({ title, subtitle, description, link }) => {
@@ -24,12 +24,12 @@ const BorderedCard: React.FC<Props> = ({ title, subtitle, description, link }) =
                 <Card.Text className={textColor}>{subtitle}</Card.Text>
                 <Card.Text className={textColor}>{description}</Card.Text>
                 {
-                    link ? <Card.Text className="text-dark">
+                    link && <Card.Text className="text-dark">
                         <Nav.Link className="d-flex align-items-center p-0" href={link} target="_blank" >
                             <FontAwesomeIcon className={`${textColor} me-3`} icon={faExternalLinkAlt} />
                             <p className={`${textColor} m-0`} >View Certificate</p>
                         </Nav.Link>
-                    </Card.Text> : <></>
+                    </Card.Text> 
                 }
             </Card.Body>
         </Card >
