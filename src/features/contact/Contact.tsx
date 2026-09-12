@@ -7,7 +7,7 @@ const Contact = () => {
           Let's talk about what you're building.
         </h2>
         <p className="mt-4 text-ink-soft dark:text-mist-soft max-w-md">
-          Feel free to reach out — I'm happy to hear about new projects or
+          Feel free to reach out. I'm happy to hear about new projects or
           just talk shop.
         </p>
 

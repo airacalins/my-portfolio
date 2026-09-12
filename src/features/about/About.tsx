@@ -3,6 +3,7 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import {
   faBootstrap,
+  faClaude,
   faCss3Alt,
   faFigma,
   faGit,
@@ -13,6 +14,7 @@ import {
   faLinkedin,
   faReact,
   faSass,
+  faTailwindCss,
 } from '@fortawesome/free-brands-svg-icons';
 
 const socialLinks = [
@@ -21,7 +23,7 @@ const socialLinks = [
     id: 2,
     name: 'LinkedIn',
     handle: 'Aira Calingasan',
-    link: 'https://www.linkedin.com/in/aira-calingasan-b40852233/',
+    link: 'https://www.linkedin.com/in/aira-c-b40852233/',
     icon: faLinkedin,
   },
 ];
@@ -41,7 +43,9 @@ const stackGroups: { label: string; items: { name: string; icon?: IconDefinition
     items: [
       { name: 'React', icon: faReact },
       { name: 'React Native', icon: faReact },
-      { name: 'Flutter' },
+      { name: 'Redwood' },
+      { name: 'Tailwind CSS', icon: faTailwindCss },
+      { name: 'shadcn/ui' },
       { name: 'Bootstrap', icon: faBootstrap },
       { name: 'Sass', icon: faSass },
       { name: 'Semantic UI' },
@@ -53,6 +57,7 @@ const stackGroups: { label: string; items: { name: string; icon?: IconDefinition
       { name: 'Git', icon: faGit },
       { name: 'Figma', icon: faFigma },
       { name: 'Jira', icon: faJira },
+      { name: 'Claude', icon: faClaude },
     ],
   },
 ];
@@ -69,7 +74,7 @@ const About = () => {
           <p className="text-ink-soft dark:text-mist-soft leading-relaxed mb-8">
             I'm based in Pasig City, Philippines. Professionally I build web
             applications with React, and outside of work I build mobile apps
-            with React Native and Flutter.
+            with React Native.
           </p>
 
           <div className="flex flex-col gap-3">

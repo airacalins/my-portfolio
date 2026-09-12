@@ -73,7 +73,7 @@ const NavMenu = () => {
               <FontAwesomeIcon icon={faGithub} />
             </a>
             <a
-              href="https://www.linkedin.com/in/aira-calingasan-b40852233/"
+              href="https://www.linkedin.com/in/aira-c-b40852233/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
@@ -120,7 +120,7 @@ const NavMenu = () => {
             <a href="https://github.com/airacalins" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-ink-soft dark:text-mist-soft">
               <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://www.linkedin.com/in/aira-calingasan-b40852233/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-ink-soft dark:text-mist-soft">
+            <a href="https://www.linkedin.com/in/aira-c-b40852233/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-ink-soft dark:text-mist-soft">
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
             <button type="button" onClick={toggleDarkMode} aria-label="Toggle theme" className="text-ink-soft dark:text-mist-soft">

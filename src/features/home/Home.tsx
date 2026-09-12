@@ -25,8 +25,8 @@ const Home = () => {
         </h1>
 
         <p className="mt-6 max-w-xl text-lg text-ink-soft dark:text-mist-soft leading-relaxed">
-          I build interfaces for the web and mobile — React on the front end,
-          React Native and Flutter beyond it.
+          I build interfaces for the web and mobile. React on the front end,
+          React Native beyond it.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
