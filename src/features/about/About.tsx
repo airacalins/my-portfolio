@@ -1,84 +1,122 @@
-import React, { useContext, useMemo } from 'react';
-import { ThemeContext } from '../../app/layouts/App';
-import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { faBootstrap, faCss3Alt, faFigma, faGit, faHtml5, faJira, faJs, faReact, faSass } from '@fortawesome/free-brands-svg-icons';
-import { useLocation } from 'react-router-dom';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBootstrap,
+  faCss3Alt,
+  faFigma,
+  faGit,
+  faGithub,
+  faHtml5,
+  faJira,
+  faJs,
+  faLinkedin,
+  faReact,
+  faSass,
+} from '@fortawesome/free-brands-svg-icons';
+
+const socialLinks = [
+  { id: 1, name: 'GitHub', handle: '@airacalins', link: 'https://github.com/airacalins', icon: faGithub },
+  {
+    id: 2,
+    name: 'LinkedIn',
+    handle: 'Aira Calingasan',
+    link: 'https://www.linkedin.com/in/aira-calingasan-b40852233/',
+    icon: faLinkedin,
+  },
+];
+
+const stackGroups: { label: string; items: { name: string; icon?: IconDefinition }[] }[] = [
+  {
+    label: 'Languages',
+    items: [
+      { name: 'JavaScript', icon: faJs },
+      { name: 'TypeScript' },
+      { name: 'HTML', icon: faHtml5 },
+      { name: 'CSS', icon: faCss3Alt },
+    ],
+  },
+  {
+    label: 'Frameworks & libraries',
+    items: [
+      { name: 'React', icon: faReact },
+      { name: 'React Native', icon: faReact },
+      { name: 'Flutter' },
+      { name: 'Bootstrap', icon: faBootstrap },
+      { name: 'Sass', icon: faSass },
+      { name: 'Semantic UI' },
+    ],
+  },
+  {
+    label: 'Tools',
+    items: [
+      { name: 'Git', icon: faGit },
+      { name: 'Figma', icon: faFigma },
+      { name: 'Jira', icon: faJira },
+    ],
+  },
+];
 
 const About = () => {
+  return (
+    <section id="about" className="scroll-mt-16 border-b border-paper-line dark:border-night-line">
+      <div className="mx-auto max-w-5xl px-6 py-20 grid grid-cols-1 md:grid-cols-5 gap-12">
+        <div className="md:col-span-2">
+          <p className="font-mono text-xs text-emerald dark:text-emerald-bright mb-3">About</p>
+          <h2 className="text-2xl font-semibold text-ink dark:text-mist mb-4">
+            Frontend-leaning, comfortable across the stack
+          </h2>
+          <p className="text-ink-soft dark:text-mist-soft leading-relaxed mb-8">
+            I'm based in Pasig City, Philippines. Professionally I build web
+            applications with React, and outside of work I build mobile apps
+            with React Native and Flutter.
+          </p>
 
-    const [isDarkMode] = useContext(ThemeContext);
-    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
-
-    const socialLinks = [
-        { id: 1, name: "GitHub", link: "https://github.com/airacalins" },
-        { id: 2, name: "LinkedIn", link: "https://www.linkedin.com/in/aira-calingasan-b40852233/" }
-    ]
-
-    const techStacks = [
-        { id: 1, name: "REACT-NATIVE", icon: faReact },
-        { id: 2, name: "REACT", icon: faReact },
-        { id: 3, name: "JAVASCRIPT", icon: faJs },
-        { id: 4, name: "TYPESCRIPT" },
-        { id: 5, name: "GIT", icon: faGit },
-        { id: 6, name: "FIGMA", icon: faFigma },
-        { id: 7, name: "JIRA", icon: faJira },
-        { id: 8, name: "BOOTSTRAP", icon: faBootstrap },
-        { id: 9, name: "SEMANTIC UI" },
-        { id: 10, name: "SASS", icon: faSass },
-        { id: 11, name: "HTML", icon: faHtml5 },
-        { id: 11, name: "CSS", icon: faCss3Alt },
-        { id: 11, name: "FLUTTER"},
-    ]
-
-    const textColor = theme === "dark" ? "text-light" : "text-dark";
-
-    const renderSocialLinks = (name: string, link: string) => {
-        return (
-            <a href={link} target="_blank" className='text__no-decoration d-flex align-items-center py-2'>
-                <FontAwesomeIcon className={textColor} icon={faExternalLinkAlt} />
-                <h5 className={`${textColor} m-0 ms-2`}>{name}</h5>
-            </a>
-        )
-    }
-
-    const renderTechStack = (icon: IconProp, name: string) => {
-        return (
-            <Col className="my-2" lg={3} md>
-                <div className={`align-items-center d-flex w-100 border p-2 rounded ${theme === "light" ? "border-dark" : ""}`}>
-                    <FontAwesomeIcon className={`${textColor} me-2`} icon={icon} />
-                    <p className={`${textColor} m-0`}>{name}</p>
-                </div>
-            </Col>
-        )
-    }
-
-    const themeClass = `${theme}__primary`;
-
-    return (
-        <div className={`${themeClass} padding__top-3  min-vh-100`}>
-            <Container>
-                <div className="mb-5">
-                    <p className={`title__huge ${textColor}`}>About</p>
-                    <h2 className={textColor}>I am an entry-level software engineer based in Pasig, Philippines. I make mobile applications during my free time and I enjoy building web applications using React. </h2>
-                </div>
-
-                <Row className="py-5">
-                    <Col className="mb-5" lg={5}>
-                        <h1 className={`${textColor} my-3`}>Social Links</h1>
-                        {socialLinks.map(s => renderSocialLinks(s.name, s.link))}
-                    </Col>
-
-                    <Col className="mb-5" lg={7}>
-                        <h1 className={`${textColor} my-3`}>Technology Stack</h1>
-                        <Row>{techStacks.map(t => renderTechStack(t.icon as IconProp, t.name))}</Row>
-                    </Col>
-                </Row>
-            </Container>
+          <div className="flex flex-col gap-3">
+            {socialLinks.map((s) => (
+              <a
+                key={s.id}
+                href={s.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center justify-between rounded-md border border-paper-line dark:border-night-line px-4 py-3 hover:border-emerald dark:hover:border-emerald-bright transition-colors"
+              >
+                <span className="flex items-center gap-3">
+                  <FontAwesomeIcon icon={s.icon} className="text-ink-soft dark:text-mist-soft" />
+                  <span className="text-sm text-ink dark:text-mist">{s.name}</span>
+                </span>
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="text-xs text-ink-soft dark:text-mist-soft group-hover:text-emerald dark:group-hover:text-emerald-bright"
+                />
+              </a>
+            ))}
+          </div>
         </div>
-    );
-}
+
+        <div className="md:col-span-3">
+          <div className="flex flex-col gap-6">
+            {stackGroups.map((group) => (
+              <div key={group.label}>
+                <p className="font-mono text-xs text-ink-soft dark:text-mist-soft mb-3">{group.label}</p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item.name}
+                      className="inline-flex items-center gap-2 rounded-full border border-paper-line dark:border-night-line px-3 py-1.5 text-sm text-ink dark:text-mist"
+                    >
+                      {item.icon && <FontAwesomeIcon icon={item.icon} className="text-xs" />}
+                      {item.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default About;

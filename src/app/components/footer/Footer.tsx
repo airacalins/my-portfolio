@@ -1,25 +1,34 @@
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container, Nav } from 'react-bootstrap';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
-    return (
-        <div className='footer border-top bg-dark py-3'>
-            <Container className='footer__container d-flex justify-content-between align-items-center'>
-                <p className='text-light m-0'>Aira Calingasan</p>
-                <div className='d-flex'>
-                    <Nav.Link className='p-0 me-3' href="https://github.com/airacalins" target="_blank">
-                        <FontAwesomeIcon className="text-light" icon={faGithub} />
-                    </Nav.Link>
-
-                    <Nav.Link className='p-0 me-3' href="https://www.linkedin.com/in/aira-calingasan-b40852233/" target="_blank">
-                        <FontAwesomeIcon className="text-light" icon={faLinkedin} />
-                    </Nav.Link>
-                </div>
-            </Container >
+  return (
+    <footer className="border-t border-paper-line dark:border-night-line">
+      <div className="mx-auto max-w-5xl px-6 py-6 flex items-center justify-between">
+        <p className="text-sm text-ink-soft dark:text-mist-soft">Aira Calingasan</p>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/airacalins"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className="text-ink-soft dark:text-mist-soft hover:text-ink dark:hover:text-mist"
+          >
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/aira-calingasan-b40852233/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className="text-ink-soft dark:text-mist-soft hover:text-ink dark:hover:text-mist"
+          >
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
         </div>
-
-    );
-}
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;

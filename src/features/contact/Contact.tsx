@@ -1,30 +1,31 @@
-import React, { useContext, useMemo } from 'react';
-import { ThemeContext } from '../../app/layouts/App';
-import { Container } from 'react-bootstrap';
-
 const Contact = () => {
+  return (
+    <section id="contact" className="scroll-mt-16">
+      <div className="mx-auto max-w-5xl px-6 py-24">
+        <p className="font-mono text-xs text-emerald dark:text-emerald-bright mb-3">Contact</p>
+        <h2 className="text-3xl sm:text-4xl font-semibold text-ink dark:text-mist max-w-xl">
+          Let's talk about what you're building.
+        </h2>
+        <p className="mt-4 text-ink-soft dark:text-mist-soft max-w-md">
+          Feel free to reach out — I'm happy to hear about new projects or
+          just talk shop.
+        </p>
 
-    const [isDarkMode] = useContext(ThemeContext);
-    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
-
-    const themeClass = `${theme}__secondary`
-    const textColor = theme === "dark" ? "text-light" : "text-dark";
-
-    return (
-        <div className={`${themeClass} padding__top-3 vh-100`}>
-            <Container>
-                <div className="mb-5">
-                    <p className={`title__huge ${textColor}`}>Contact</p>
-                    <div className='my-5'>
-                        <h1 className={`${textColor}`}>Get in touch, let's talk!</h1>
-                        <h4 className={`${textColor}`}>Feel free to send me a message</h4>
-                        <h5 className={`${textColor} mt-5`}>airacalins@gmail.com</h5>
-                        <h5 className={`${textColor}`}>(+63) 927-696-0322</h5>
-                    </div>
-                </div>
-            </Container>
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+          <a
+            href="mailto:airacalins@gmail.com"
+            className="inline-flex items-center rounded-md bg-emerald px-5 py-2.5 text-sm font-medium text-mist hover:bg-emerald-bright transition-colors w-fit"
+          >
+            Say hello
+          </a>
+          <div className="flex flex-col text-sm text-ink-soft dark:text-mist-soft">
+            <span className="font-mono">airacalins@gmail.com</span>
+            <span className="font-mono">(+63) 927-696-0322</span>
+          </div>
         </div>
-    );
-}
+      </div>
+    </section>
+  );
+};
 
 export default Contact;

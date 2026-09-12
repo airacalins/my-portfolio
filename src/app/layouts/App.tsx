@@ -1,36 +1,53 @@
-import React, { useState } from 'react';
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { createContext, useEffect, useState } from 'react';
 import About from '../../features/about/About';
 import Contact from '../../features/contact/Contact';
 import Experience from '../../features/experience/Experience';
-
-import FullPage from '../../features/fullPage/FullPage';
+import Home from '../../features/home/Home';
 import Project from '../../features/projects/Project';
 import Footer from '../components/footer/Footer';
 import NavMenu from '../components/navMenu/NavMenu';
-import './variables.scss'
 
-export const ThemeContext = React.createContext({} as any);
+interface ThemeContextValue {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+export const ThemeContext = createContext<ThemeContextValue>({
+  isDarkMode: true,
+  toggleDarkMode: () => {},
+});
+
+const THEME_STORAGE_KEY = 'aira-portfolio-theme';
+
+function getInitialTheme(): boolean {
+  if (typeof window === 'undefined') return true;
+  const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored) return stored === 'dark';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(getInitialTheme);
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDarkMode);
+    window.localStorage.setItem(THEME_STORAGE_KEY, isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
   return (
-    <ThemeContext.Provider value={[isDarkMode, setIsDarkMode]}>
-      <HashRouter>
-        <NavMenu />
-        <Routes>
-          <Route path="/" element={<FullPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/project" element={<Project />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </HashRouter>
-
+    <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
+      <NavMenu />
+      <main>
+        <Home />
+        <About />
+        <Experience />
+        <Project />
+        <Contact />
+      </main>
       <Footer />
-    </ThemeContext.Provider >
+    </ThemeContext.Provider>
   );
 }
 

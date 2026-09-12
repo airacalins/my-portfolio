@@ -1,45 +1,38 @@
-import React, { useContext, useMemo } from 'react';
-import { ThemeContext } from '../../app/layouts/App'; import { Col, Container, Row } from 'react-bootstrap';
-import BorderedCard from '../../app/components/card/BorderedCard';
+const certificates = [
+  { id: 1, name: 'JavaScript Essentials', author: 'Udemy', date: '2018', image: '/my-portfolio/images/20180901-JavascriptEssentials.png' },
+  { id: 2, name: 'JavaScript Basics', author: 'Udemy', date: '2018', image: '/my-portfolio/images/20181001-JavascriptBasics.png' },
+  { id: 3, name: 'SQL', author: 'Code with Mosh', date: '2020', image: '/my-portfolio/images/20200621-SQL.png' },
+  { id: 4, name: 'Full-stack Web Development Training', author: 'Zuitt', date: '2020', image: '/my-portfolio/images/20200903-Zuitt.png' },
+  { id: 5, name: 'Achievement Award — 3rd Top Performer', author: 'Zuitt', date: '2020', image: '/my-portfolio/images/20200903-Zuitt-Top3.png' },
+  { id: 6, name: 'Java', author: 'Zuitt', date: '2020', image: '/my-portfolio/images/20200911-Zuitt-Java.png' },
+  { id: 7, name: 'React', author: 'Zuitt', date: '2020', image: '/my-portfolio/images/20200919-Zuit-React.png' },
+  { id: 8, name: '600-hour Internship Completion', author: 'Nutricoach', date: '2021', image: '/my-portfolio/images/20210315-Nutricoach.png' },
+  { id: 9, name: 'Flutter Training Course', author: 'FFUF Manila Inc', date: '2022', image: '/my-portfolio/images/20220418-Flutter.png' },
+];
 
 const Certificate = () => {
-    const [isDarkMode] = useContext(ThemeContext);
-    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
-
-    const certificates = [
-        { id: 1, name: "Javascript Essentials", author: "Udemy", description: "2018 Sep 01", imageSource: "/my-portfolio/images/20180901-JavascriptEssentials.png" },
-        { id: 2, name: "Javascript Basics", author: "Udemy", description: "2018 Oct 01", imageSource: "/my-portfolio/images/20181001-JavascriptBasics.png" },
-        { id: 3, name: "SQL", author: "Code with Mosh", description: "2020 Jun 21", imageSource: "/my-portfolio/images/20200621-SQL.png" },
-        { id: 4, name: "Full-stack Web Development Training", author: "Zuitt", description: "2020 Sep 03", imageSource: "/my-portfolio/images/20200903-Zuitt.png" },
-        { id: 5, name: "Achievement Award - 3rd Top Performer", author: "Zuitt", description: "2020 Sep 03", imageSource: "/my-portfolio/images/20200903-Zuitt-Top3.png" },
-        { id: 6, name: "Java", author: "Zuitt", description: "2021 Sep 18", imageSource: "/my-portfolio/images/20200911-Zuitt-Java.png" },
-        { id: 7, name: "React", author: "Zuitt", description: "2021 Sep 11", imageSource: "/my-portfolio/images/20200919-Zuit-React.png" },
-        { id: 8, name: "600-hours Internship Completion", author: "Nutricoach", description: "2021 Mar 15", imageSource: "/my-portfolio/images/20210315-Nutricoach.png" },
-        { id: 9, name: "Flutter Training Course", author: "FFUF Manila Inc", description: "2022 Apr 18", imageSource: "/my-portfolio/images/20220418-Flutter.png" },
-    ]
-
-    const themeClass = `${theme}__secondary`
-
-    return (
-        <div className={`${themeClass} padding__top-3 padding__bottom-8`}>
-            <Container>
-                <div className="mb-5">
-                    <p className={`title__huge ${isDarkMode ? "text-light" : "text-dark"}`}>Certificates</p>
-                </div>
-
-                <Row className="align-items-end">
-                    {
-                        certificates.map(c =>
-                            <Col lg={4}>
-                                <BorderedCard title={c.name} subtitle={c.author} description={c.description} link={c.imageSource} />
-                            </Col>
-                        )
-                    }
-                </Row>
-
-            </Container>
-        </div>
-    );
-}
+  return (
+    <div className="mt-16">
+      <p className="font-mono text-xs text-ink-soft dark:text-mist-soft mb-6">Certificates</p>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        {certificates.map((c) => (
+          <a
+            key={c.id}
+            href={c.image}
+            target="_blank"
+            rel="noreferrer"
+            className="group block rounded-md border border-paper-line dark:border-night-line p-3 hover:border-emerald dark:hover:border-emerald-bright transition-colors"
+          >
+            <p className="text-sm text-ink dark:text-mist leading-snug">{c.name}</p>
+            <div className="flex items-center justify-between mt-2">
+              <span className="font-mono text-xs text-ink-soft dark:text-mist-soft">{c.author}</span>
+              <span className="font-mono text-xs text-ink-soft dark:text-mist-soft">{c.date}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Certificate;

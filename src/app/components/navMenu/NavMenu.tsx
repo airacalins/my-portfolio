@@ -1,54 +1,136 @@
-import React, { useContext, useEffect, useMemo } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { ThemeContext } from '../../layouts/App';
-import { useLocation } from 'react-router-dom';
+
+const SECTIONS = [
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const NavMenu = () => {
+  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
-    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
-
-    const location = useLocation();
-
-    useEffect(() => {
-        console.log(location);
-    }, [location])
-
-    const themeClass = `navbar__${theme}`;
-
-    return (
-        <Navbar className={`${themeClass} py-4`} expand="lg" variant="dark">
-            <Container>
-
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/" ? "text__bold" : ""}`} href="/my-portfolio/#">HOME</Nav.Link>
-                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/about" ? "text__bold" : ""}`} href="/my-portfolio/#/about">ABOUT</Nav.Link>
-                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/experience" ? "text__bold" : ""}`} href="/my-portfolio/#/experience">EXPERIENCE</Nav.Link>
-                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/project" ? "text__bold" : ""}`} href="/my-portfolio/#/project">PROJECTS</Nav.Link>
-                        <Nav.Link className={`text-light pe-4 ${location.pathname === "/contact" ? "text__bold" : ""}`} href="/my-portfolio/#/contact">CONTACTS</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-
-                <div className='d-flex align-items-center'>
-                    <Nav.Link className='p-0 me-3' href="https://github.com/airacalins" target="_blank">
-                        <FontAwesomeIcon className="text-light" icon={faGithub} />
-                    </Nav.Link>
-
-                    <Nav.Link className='p-0 me-3' href="https://www.linkedin.com/in/aira-calingasan-b40852233/" target="_blank">
-                        <FontAwesomeIcon className="text-light" icon={faLinkedin} />
-                    </Nav.Link>
-
-                    <FontAwesomeIcon onClick={() => setIsDarkMode(!isDarkMode)} className="text-light" icon={isDarkMode ? faSun : faMoon} />
-                </div>
-            </Container >
-        </Navbar >
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
     );
-}
+
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-paper-line dark:border-night-line bg-paper/90 dark:bg-night/90 backdrop-blur">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="flex h-16 items-center justify-between">
+          <a href="#" className="font-semibold tracking-tight text-ink dark:text-mist">
+            Aira Calingasan
+          </a>
+
+          <nav className="hidden md:flex items-center gap-8">
+            {SECTIONS.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className={`text-sm transition-colors ${
+                  activeSection === section.id
+                    ? 'text-emerald dark:text-emerald-bright font-medium'
+                    : 'text-ink-soft dark:text-mist-soft hover:text-ink dark:hover:text-mist'
+                }`}
+              >
+                {section.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="https://github.com/airacalins"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="text-ink-soft dark:text-mist-soft hover:text-ink dark:hover:text-mist"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/aira-calingasan-b40852233/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="text-ink-soft dark:text-mist-soft hover:text-ink dark:hover:text-mist"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <button
+              type="button"
+              onClick={toggleDarkMode}
+              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="text-ink-soft dark:text-mist-soft hover:text-ink dark:hover:text-mist"
+            >
+              <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+            </button>
+          </div>
+
+          <button
+            type="button"
+            className="md:hidden text-ink dark:text-mist"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} />
+          </button>
+        </div>
+      </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-paper-line dark:border-night-line bg-paper dark:bg-night px-6 py-4">
+          <nav className="flex flex-col gap-4">
+            {SECTIONS.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                onClick={closeMenu}
+                className="text-sm text-ink-soft dark:text-mist-soft"
+              >
+                {section.label}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-5 mt-5 pt-4 border-t border-paper-line dark:border-night-line">
+            <a href="https://github.com/airacalins" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-ink-soft dark:text-mist-soft">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a href="https://www.linkedin.com/in/aira-calingasan-b40852233/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-ink-soft dark:text-mist-soft">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <button type="button" onClick={toggleDarkMode} aria-label="Toggle theme" className="text-ink-soft dark:text-mist-soft">
+              <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+            </button>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
 
 export default NavMenu;

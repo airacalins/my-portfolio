@@ -1,98 +1,95 @@
-import React, { useContext, useMemo } from 'react';
-import { ThemeContext } from '../../app/layouts/App';
-import { Col, Container, Row } from "react-bootstrap";
-
+import Card from '../../app/components/card/Card';
 import Certificate from '../certificate/Certificate';
-import BorderedCard from '../../app/components/card/BorderedCard';
+
+interface Work {
+  id: number;
+  title: string;
+  companyName: string;
+  description: string;
+  link?: string;
+}
+
+const experiences: { id: number; year: number; works: Work[] }[] = [
+  {
+    id: 1,
+    year: 2022,
+    works: [
+      {
+        id: 1,
+        title: 'Graduation',
+        companyName: 'AMA University',
+        description: "Bachelor's degree in Information Technology.",
+      },
+      {
+        id: 2,
+        title: 'Flutter Developer',
+        companyName: 'FFUF Manila Inc',
+        description:
+          'Develops scalable, fault-tolerant mobile software for clients in Europe, working closely with UX designers, business analysts, and solutions architects.',
+      },
+    ],
+  },
+  {
+    id: 2,
+    year: 2020,
+    works: [
+      {
+        id: 1,
+        title: 'Internship',
+        companyName: 'Nutricoach Inc.',
+        description:
+          'Tested application features against the functionality defined in the task tracking system.',
+        link: '/my-portfolio/images/20210315-Nutricoach.png',
+      },
+    ],
+  },
+  {
+    id: 3,
+    year: 2019,
+    works: [
+      {
+        id: 1,
+        title: 'Bootcamp',
+        companyName: 'Zuitt Bootcamp',
+        description:
+          'Covered continuous integration, delivery, and deployment for applications using GitLab and Heroku.',
+        link: '/my-portfolio/images/20200903-Zuitt.png',
+      },
+    ],
+  },
+];
 
 const Experience = () => {
-    const [isDarkMode] = useContext(ThemeContext);
-    const theme = useMemo(() => isDarkMode ? "dark" : "light", [isDarkMode])
+  return (
+    <section id="experience" className="scroll-mt-16 border-b border-paper-line dark:border-night-line">
+      <div className="mx-auto max-w-5xl px-6 py-20">
+        <p className="font-mono text-xs text-emerald dark:text-emerald-bright mb-3">Experience</p>
+        <h2 className="text-2xl font-semibold text-ink dark:text-mist mb-12">Where I've worked and learned</h2>
 
-    const experiences = [
-        {
-            id: 1,
-            year: 2022,
-            works: [
-                {
-                    id: 1, title: "Graduation",
-                    companyName: "AMA University",
-                    description: "Bachelor's Degree in Information Technology",
-                    link: undefined,
-                },
-                {
-                    id: 2,
-                    title: "Flutter Developer",
-                    companyName: "FFUF Manila Inc",
-                    description: "Develops innovative, scalable, fault-tolerant software solutions for our clients in Europe. Works closely with clients, UX designers, business analysts, solutions architects, and other developers.",
-                    link: undefined,
-                },
-            ],
-        },
-        {
-            id: 2,
-            year: 2020,
-            works: [
-                {
-                    id: 1,
-                    title: "Internship",
-                    companyName: "Nutricoach Inc.",
-                    description: "Test application features and check if it follows the applications functionality stated in the task tracking system.",
-                    link: "/my-portfolio/images/20210315-Nutricoach.png"
-                },
-            ]
-        },
-        {
-            id: 3,
-            year: 2019,
-            works: [
-                {
-                    id: 1,
-                    title: "Bootcamp",
-                    companyName: "Zuitt Bootcamp",
-                    description: "A short course covering the implementation of continuous integration, delivery and deployment for applications using Gitlab and Heroku.",
-                    link: "/images/20200903-Zuitt.png"
-                },
-            ]
-        },
-    ]
-
-    const themeClass = `${theme}__secondary`
-    const textColor = theme === "dark" ? "text-light" : "text-dark";
-
-    return (
-        <div className={`${themeClass} padding__top-3`}>
-            <div>
-                <Container>
-                    <div className="mb-5">
-                        <p className={`title__huge ${textColor}`}>Experience</p>
-                    </div>
-
-                    <Row>
-                        {experiences.map(e =>
-                            <Col className="justify-content-center pb-5" lg={{ span: 6, offset: 3 }}>
-                                <h1 className="text__grey title__huge">{e.year}</h1>
-
-                                {e.works.map(w =>
-                                    <BorderedCard
-                                        title={w.title}
-                                        subtitle={w.companyName}
-                                        description={w.description}
-                                        link={w.link}
-                                    />
-                                ).reverse()}
-                            </Col>
-                        )}
-                    </Row>
-
-
-                </Container>
-            </div >
-
-            <Certificate />
+        <div className="flex flex-col gap-12">
+          {experiences.map((e) => (
+            <div key={e.id} className="grid grid-cols-1 sm:grid-cols-[5rem_1fr] gap-6">
+              <div className="font-mono text-2xl text-ink-soft dark:text-mist-soft">{e.year}</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {e.works.map((w) => (
+                  <Card
+                    key={w.id}
+                    title={w.title}
+                    subtitle={w.companyName}
+                    description={w.description}
+                    link={w.link}
+                    linkLabel="View certificate"
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
-    );
-}
+        <Certificate />
+      </div>
+    </section>
+  );
+};
 
 export default Experience;
