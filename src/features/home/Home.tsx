@@ -32,10 +32,10 @@ const Home = () => {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
             href="/my-portfolio/AiraCalingasan-Resume.pdf"
-            download
+            download="AiraCalingasan-CV.pdf"
             className="inline-flex items-center rounded-md bg-emerald px-5 py-2.5 text-sm font-medium text-mist hover:bg-emerald-bright transition-colors"
           >
-            Download résumé
+            Download CV
           </a>
           <a
             href="#contact"

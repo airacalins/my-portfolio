@@ -8,6 +8,7 @@ import {
   faFigma,
   faGit,
   faGithub,
+  faGitlab,
   faHtml5,
   faJira,
   faJs,
@@ -36,6 +37,8 @@ const stackGroups: { label: string; items: { name: string; icon?: IconDefinition
       { name: 'TypeScript' },
       { name: 'HTML', icon: faHtml5 },
       { name: 'CSS', icon: faCss3Alt },
+      { name: 'C#' },
+      { name: 'Dart' },
     ],
   },
   {
@@ -44,7 +47,12 @@ const stackGroups: { label: string; items: { name: string; icon?: IconDefinition
       { name: 'React', icon: faReact },
       { name: 'React Native', icon: faReact },
       { name: 'Redwood' },
+      { name: 'Zustand' },
+      { name: 'Redux Toolkit' },
+      { name: '.NET' },
+      { name: 'Flutter' },
       { name: 'Tailwind CSS', icon: faTailwindCss },
+      { name: 'Material UI' },
       { name: 'shadcn/ui' },
       { name: 'Bootstrap', icon: faBootstrap },
       { name: 'Sass', icon: faSass },
@@ -55,6 +63,8 @@ const stackGroups: { label: string; items: { name: string; icon?: IconDefinition
     label: 'Tools',
     items: [
       { name: 'Git', icon: faGit },
+      { name: 'GitHub', icon: faGithub },
+      { name: 'GitLab', icon: faGitlab },
       { name: 'Figma', icon: faFigma },
       { name: 'Jira', icon: faJira },
       { name: 'Claude', icon: faClaude },
@@ -73,8 +83,9 @@ const About = () => {
           </h2>
           <p className="text-ink-soft dark:text-mist-soft leading-relaxed mb-8">
             I'm based in Pasig City, Philippines. Professionally I build web
-            applications with React, and outside of work I build mobile apps
-            with React Native.
+            applications with React and mobile apps with React Native,
+            integrating REST APIs and third-party libraries into scalable,
+            responsive products.
           </p>
 
           <div className="flex flex-col gap-3">

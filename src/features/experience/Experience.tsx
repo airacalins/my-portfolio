@@ -17,10 +17,11 @@ const experiences: { id: number; year: number; works: Work[] }[] = [
     works: [
       {
         id: 1,
-        title: 'Frontend Developer',
+        title: 'Frontend Developer (React & React Native)',
         companyName: 'OGIS Philippines',
         dateRange: 'Jun 2025 – Present',
-        description: 'Hybrid role building with React Native and Tailwind CSS.',
+        description:
+          'Rebuilt a delivery app from scratch in React Native and built the React admin panel for managing orders and delivery workflows, with Playwright end-to-end tests for reliability.',
       },
     ],
   },
@@ -30,17 +31,11 @@ const experiences: { id: number; year: number; works: Work[] }[] = [
     works: [
       {
         id: 1,
-        title: 'Junior React/React Native Developer',
+        title: 'Frontend Developer (React & React Native)',
         companyName: 'Nutricoach Inc.',
         dateRange: 'Jul 2023 – Oct 2025',
-        description: 'Remote role based in Pasig, working across HTML5 and React Native.',
-      },
-      {
-        id: 2,
-        title: 'Junior Developer I',
-        companyName: 'FFUF Manila Inc.',
-        dateRange: 'Jan 2023 – Jun 2023',
-        description: 'Front-end development and user interaction work, full-time.',
+        description:
+          'Built and maintained mobile apps in React Native and web apps in React, integrating RESTful APIs and third-party libraries into scalable, responsive product features.',
       },
     ],
   },
@@ -50,20 +45,14 @@ const experiences: { id: number; year: number; works: Work[] }[] = [
     works: [
       {
         id: 1,
-        title: 'Flutter Trainee',
+        title: 'Frontend Developer (Flutter)',
         companyName: 'FFUF Manila Inc.',
-        dateRange: 'Jul 2022 – Jan 2023',
-        description: 'Based in Makati, developing mobile software with Flutter.',
+        dateRange: 'Aug 2022 – Jun 2023',
+        description:
+          'Built scalable, fault-tolerant Flutter apps for clients in Europe, working closely with clients, UX designers, and cross-functional teams in an agile environment.',
       },
       {
         id: 2,
-        title: 'Flutter Bootcamper',
-        companyName: 'FFUF Manila Inc.',
-        dateRange: 'Apr 2022 – Jun 2022',
-        description: 'Internship covering Flutter fundamentals, completed with a certificate.',
-      },
-      {
-        id: 3,
         title: 'Graduation',
         companyName: 'AMA University',
         dateRange: '2022',
