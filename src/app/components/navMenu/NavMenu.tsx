@@ -17,23 +17,33 @@ const NavMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-40% 0px -55% 0px' }
-    );
+    const HEADER_OFFSET = 64; // matches the sticky header height / scroll-mt-16
 
-    SECTIONS.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    const handleScroll = () => {
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (scrolledToBottom) {
+        setActiveSection(SECTIONS[SECTIONS.length - 1].id);
+        return;
+      }
 
-    return () => observer.disconnect();
+      let current = SECTIONS[0].id;
+      for (const { id } of SECTIONS) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top - HEADER_OFFSET <= 1) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
