@@ -1,4 +1,20 @@
+import { useState } from 'react';
+
+const EMAIL = 'airacalins@gmail.com';
+
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleClick = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API unavailable; the mailto navigation is the fallback.
+    }
+  };
+
   return (
     <section id="contact" className="scroll-mt-16">
       <div className="mx-auto max-w-5xl px-6 py-24">
@@ -13,13 +29,14 @@ const Contact = () => {
 
         <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
           <a
-            href="mailto:airacalins@gmail.com"
+            href={`mailto:${EMAIL}`}
+            onClick={handleClick}
             className="inline-flex items-center rounded-md bg-emerald px-5 py-2.5 text-sm font-medium text-mist hover:bg-emerald-bright transition-colors w-fit"
           >
-            Say hello
+            {copied ? 'Copied!' : 'Say hello'}
           </a>
           <div className="flex flex-col text-sm text-ink-soft dark:text-mist-soft">
-            <span className="font-mono">airacalins@gmail.com</span>
+            <span className="font-mono">{EMAIL}</span>
             <span className="font-mono">(+63) 927-696-0322</span>
           </div>
         </div>
