@@ -24,7 +24,7 @@ const projects: ProjectEntry[] = [
   },
   {
     title: 'esgo',
-    href: 'http://172.104.55.123:3000/sign-in',
+    href: 'https://esgo.it.com',
     description:
       'A multi-branch inventory and sales management system, from supplier orders and stock movements to customer invoicing and PDF reports.',
     stack: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'NestJS', 'PostgreSQL', 'Prisma'],
