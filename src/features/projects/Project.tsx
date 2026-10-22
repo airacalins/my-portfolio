@@ -16,7 +16,7 @@ type ProjectEntry = {
 const projects: ProjectEntry[] = [
   {
     title: 'Savewise',
-    href: 'http://139.162.58.138/login',
+    href: 'https://savews.com',
     description:
       'A budgeting and savings app for tracking transactions, credit cards, and scheduled payments, with peer-to-peer loan tracking so two people can jointly manage and audit a shared debt.',
     stack: ['Expo (React Native)', 'Next.js', 'NestJS', 'PostgreSQL', 'Prisma', 'TypeScript', 'TanStack Query', 'Zustand'],
